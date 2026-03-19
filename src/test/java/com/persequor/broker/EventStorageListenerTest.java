@@ -3,6 +3,7 @@ package com.persequor.broker;
 import com.persequor.model.Event;
 import com.persequor.model.EventAction;
 import com.persequor.repository.EventRepository;
+import com.persequor.repository.exceptions.EventRepositoryErrorException;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
@@ -48,7 +49,7 @@ public class EventStorageListenerTest {
     }
 
     @Test
-    public void testOk() {
+    public void testOk() throws EventRepositoryErrorException {
 
         listener.handle(incomingEvent, 1);
     }

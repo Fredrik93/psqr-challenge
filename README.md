@@ -12,5 +12,6 @@ Scope:
 *  opening up project in intellij first time looks ok. mvn clean works, mvn install does not. something with java 9 and List.of()? 
 * trying to just call the empty handle method in EventStorageListener fails with a weird unable to make protected final String error, never seen this. 
 * okay so mockito was version 1 and initMocks is very old and stuff is breaking because of this, maybe because im using a java version that is older than 9. i upgraded mockito and some imports and it seems to work. 
-* im not sure how but git was set to your repo, i could see anton and some more people commited. I removed git and set my own repo. i had access rights but maybe i should have pushed to my 
+* im not sure how but git was set to your repo, i could see anton and some more people commited. I removed git and set my own repo. i had access rights but maybe i should have pushed to my own branch. anyhow i made my own repo.
+* 
 # psqr-challenge

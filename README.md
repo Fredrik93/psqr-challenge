@@ -13,5 +13,9 @@ Scope:
 * trying to just call the empty handle method in EventStorageListener fails with a weird unable to make protected final String error, never seen this. 
 * okay so mockito was version 1 and initMocks is very old and stuff is breaking because of this, maybe because im using a java version that is older than 9. i upgraded mockito and some imports and it seems to work. 
 * im not sure how but git was set to your repo, i could see anton and some more people commited. I removed git and set my own repo. i had access rights but maybe i should have pushed to my own branch. anyhow i made my own repo.
-* 
+* tried to add a gitignore (i thought it was added earlier). some class files are commited and i have no idea why. 
+
+
+
+
 # psqr-challenge

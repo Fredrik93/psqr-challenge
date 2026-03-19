@@ -1,0 +1,17 @@
+com/persequor/repository/exceptions/EventRepositoryErrorException.class
+com/persequor/broker/EventListener.class
+com/persequor/model/EventAction.class
+com/persequor/extensions/IAdvancedExtension.class
+com/persequor/broker/StatisticsListener.class
+com/persequor/repository/StatisticsRepository.class
+com/persequor/ioc/Ioc.class
+com/persequor/exceptions/EventServiceErrorException.class
+com/persequor/broker/EventStorageListener.class
+com/persequor/broker/EventQueue.class
+com/persequor/extensions/ExtensionListener.class
+com/persequor/extensions/IExtension.class
+com/persequor/repository/EventRepository.class
+com/persequor/exceptions/EventServiceException.class
+com/persequor/EventService.class
+com/persequor/model/Event.class
+com/persequor/model/EventList.class

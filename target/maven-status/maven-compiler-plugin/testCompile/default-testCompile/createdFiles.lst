@@ -1,0 +1,3 @@
+com/persequor/broker/StatisticsListenerTest.class
+com/persequor/broker/EventStorageListenerTest.class
+com/persequor/extensions/ExtensionListenerTest.class

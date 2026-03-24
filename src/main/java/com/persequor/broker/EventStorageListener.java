@@ -23,11 +23,20 @@ public class EventStorageListener
 	}
 
 	@Override
-	public void handle(Event incomingEvent, int deliveryTag) throws EventRepositoryErrorException {
+	public void handle(Event incomingEvent, int deliveryTag) {
 		//TODO: Validate that the incoming event is not an earlier event than the ones existing in the database (repository)
 
 		//      - As part of this, consider how you think the events should be sorted, and why.
 		//      - Handle validation errors the way you believe it should work
+
+		//get the existing events from the db
+		EventList events = repository.get(incomingEvent.getTrackedItemIds());
+		// get the timestamps of the db entries
+
+
+		// get the incoming event
+		//compare timstamps
+
 		//TODO: Store event
 		repository.persist(incomingEvent);
 

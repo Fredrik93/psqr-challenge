@@ -16,7 +16,7 @@ public class EventService {
         this.eventQueue = eventQueue;
     }
 
-    public void handleRequest(Event event) throws EventServiceException {
+    public void handleRequest(Event event) {
         eventQueue.push("persist-queue", event);
     }
 }

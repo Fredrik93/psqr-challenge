@@ -20,7 +20,7 @@ import java.util.UUID;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 public class EventStorageListenerTest {
     @Mock
@@ -48,21 +48,26 @@ public class EventStorageListenerTest {
     }
     @Test
     public void testOk() {
-        EventStorageListener l = new EventStorageListener(repository, eventQueue);
-        String myItemId = "parcel1";
-        //get all ids, whih should be only one, so one item with several events
-        List<String> ids = incomingEvent.getTrackedItemIds();
 
-        // assert that my parcel id exist
-        assertTrue(ids.contains(myItemId));
+        // create earliy incoming event
+        Event incomingEvent;
+        incomingEvent = helper.constructSendEvent();
+        listener.handle(incomingEvent,41);
 
-        EventList listOfEventsForTheParcel = repository.get(ids);
-        // get the first one
-        Event e1 = listOfEventsForTheParcel.get(0);
-
-
+        // verify that it was stored
+        verify(repository).persist(incomingEvent);
     }
-    /// TODO: Implement tests as needed
+   @Test
+    public void incomingEventIsTooEarly(){
+
+        // create earliy incoming event
+       Event incomingEventThatIsTooEarly = new Event();
+       incomingEventThatIsTooEarly = helper.constructSendEarlyEvent();
+       listener.handle(incomingEventThatIsTooEarly,42);
+
+       // verify that it was not stored because it is faulty
+       verify(repository, never()).persist(incomingEventThatIsTooEarly);
+   }
 
 
 

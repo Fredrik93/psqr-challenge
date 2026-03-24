@@ -18,6 +18,7 @@ Scope:
 * I have now spent 45 minutes just trying to read all classes and docs and writing unusable tests to verify my assumptions. There is no way ill make a 2 hour time limit. 
 * Spent the morning figuring out what a trackedId is. i think it means that the operations are used in batches, so we can process many parcels at the same time for one operation. for example, we can CREATE fifty new parcels in one batch. thats why we have trackedItemIds connected to one single event, which was initially confusing to me
 * Added three events and mocked the repository call so that when i run my test im actually receiving events. 
+* Added one test that validates that we are persisting data and then one that check that we do not, the latter one is failing because i currently dont know how to deal with the implementation. i dont really get how to check that the list is updated since the persist layer is just an interface, the list will not be updated obviously. maybe it is enough to check whether or not persist was called, ie if it reached that part of the code. if the event is too early it should not reach persist. 
 
 
 

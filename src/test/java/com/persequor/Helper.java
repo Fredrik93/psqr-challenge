@@ -11,7 +11,7 @@ import java.util.UUID;
 
 public class Helper {
 
-    // event 1
+    // event 0
     public Event constructCreateEvent() {
 
         Event event = new Event();
@@ -39,7 +39,7 @@ public class Helper {
         event.setTrackedItemIds(trackedItemIds);
         return event;
     }
-    // Event 1
+    // Event 2
     public Event constructSendEvent() {
 
         Event event = new Event();
@@ -49,6 +49,20 @@ public class Helper {
         event.setAction(EventAction.SEND);
         event.setSource("source");
         event.setRecordTime(LocalDateTime.of(2025,5,7,8,10));
+        List<String> trackedItemIds = new ArrayList<>(Arrays.asList("parcel1"));
+        event.setTrackedItemIds(trackedItemIds);
+        return event;
+    }
+    // Event 2 but its time is very early
+    public Event constructSendEarlyEvent() {
+
+        Event event = new Event();
+        event.setEventTime(LocalDateTime.of(2025,5,7,10,10));
+        UUID id = UUID.randomUUID();
+        event.setId(id);
+        event.setAction(EventAction.SEND);
+        event.setSource("source");
+        event.setRecordTime(LocalDateTime.of(2025,5,1,8,10));
         List<String> trackedItemIds = new ArrayList<>(Arrays.asList("parcel1"));
         event.setTrackedItemIds(trackedItemIds);
         return event;

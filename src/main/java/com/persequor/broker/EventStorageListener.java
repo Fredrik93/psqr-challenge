@@ -28,14 +28,7 @@ public class EventStorageListener
 
 		//      - As part of this, consider how you think the events should be sorted, and why.
 		//      - Handle validation errors the way you believe it should work
-
-		//get the existing events from the db
 		EventList events = repository.get(incomingEvent.getTrackedItemIds());
-		// get the timestamps of the db entries
-
-
-		// get the incoming event
-		//compare timstamps
 
 		//TODO: Store event
 		repository.persist(incomingEvent);

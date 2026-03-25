@@ -30,8 +30,7 @@ public class EventStorageListener
 		EventList events = repository.get(incomingEvent.getTrackedItemIds());
 		for (Event event : events) {
 			if (!event.getEventTime().isBefore(incomingEvent.getEventTime())) {
-				log.warn("Rejecting event {} - event time {} is earlier than existing event time {}",
-						incomingEvent.getId(), incomingEvent.getEventTime(), event.getEventTime());
+				log.warn("Rejecting event, event is earlier than existing event time");
 			}
 		}
 

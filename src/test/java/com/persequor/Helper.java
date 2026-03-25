@@ -15,7 +15,7 @@ public class Helper {
     public Event constructCreateEvent() {
 
         Event event = new Event();
-        event.setEventTime(LocalDateTime.of(2025,5,1,9,5,5));
+        event.setEventTime(LocalDateTime.of(2025,5,3,9,5,5));
         UUID id = UUID.randomUUID();
         event.setId(id);
         event.setAction(EventAction.CREATE);
@@ -57,7 +57,8 @@ public class Helper {
     public Event constructSendEarlyEvent() {
 
         Event event = new Event();
-        event.setEventTime(LocalDateTime.of(2025,5,7,10,10));
+        // Something went wrong in creating the time so the year is now 2023, way too early
+        event.setEventTime(LocalDateTime.of(2023,5,7,10,10));
         UUID id = UUID.randomUUID();
         event.setId(id);
         event.setAction(EventAction.SEND);

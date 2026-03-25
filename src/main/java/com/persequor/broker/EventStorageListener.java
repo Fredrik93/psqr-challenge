@@ -3,14 +3,15 @@ package com.persequor.broker;
 import com.persequor.model.Event;
 import com.persequor.model.EventList;
 import com.persequor.repository.EventRepository;
-import com.persequor.repository.exceptions.EventRepositoryErrorException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import java.awt.*;
-import java.util.Collections;
+import java.time.DateTimeException;
 
 public class EventStorageListener
 	implements EventListener
 {
+	private static final Logger log = LoggerFactory.getLogger(EventStorageListener.class);
 	private final EventRepository repository;
 	private EventQueue eventQueue;
 
@@ -24,12 +25,17 @@ public class EventStorageListener
 
 	@Override
 	public void handle(Event incomingEvent, int deliveryTag) {
-		//TODO: Validate that the incoming event is not an earlier event than the ones existing in the database (repository)
+		log.info("Received event: {} with delivery tag: {}", incomingEvent.getId(), deliveryTag);
 
-		//      - As part of this, consider how you think the events should be sorted, and why.
-		//      - Handle validation errors the way you believe it should work
 		EventList events = repository.get(incomingEvent.getTrackedItemIds());
+		for (Event event : events) {
+			if (!event.getEventTime().isBefore(incomingEvent.getEventTime())) {
+				log.warn("Rejecting event {} - event time {} is earlier than existing event time {}",
+						incomingEvent.getId(), incomingEvent.getEventTime(), event.getEventTime());
+			}
+		}
 
+		log.debug("Storing event: {}", incomingEvent.getId());
 		//TODO: Store event
 		repository.persist(incomingEvent);
 

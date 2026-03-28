@@ -21,7 +21,7 @@ Scope:
 * Added one test that validates that we are persisting data and then one that check that we do not, the latter one is failing because i currently dont know how to deal with the implementation. i dont really get how to check that the list is updated since the persist layer is just an interface, the list will not be updated obviously. maybe it is enough to check whether or not persist was called, ie if it reached that part of the code. if the event is too early it should not reach persist. 
 * Added sl4j for logging and verify that early event is handled 
 * updated statistics listenner
-* there are tests failing but it is because i have not started thinking about the implementation for such tests (e.g., events > 10)
+* there are tests failing but it is because i have not started thinking about the implementation for such tests (e.g., events
 
 
 
